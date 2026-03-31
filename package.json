@@ -28,6 +28,7 @@
 	"keywords": ["email", "api", "buchida", "cjk", "smtp"],
 	"author": "buchida <hello@buchida.com>",
 	"license": "MIT",
+	"homepage": "https://buchida.com/docs/sdks/node",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Vyblor/buchida-node.git"
