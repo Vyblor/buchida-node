@@ -2,7 +2,7 @@
  * Express example — send email from an Express route.
  *
  * Run:
- *   NSEND_API_KEY=bc_test_xxx npx tsx examples/express.ts
+ *   BUCHIDA_API_KEY=bc_test_xxx npx tsx examples/express.ts
  *   curl -X POST http://localhost:3001/send \
  *     -H "Content-Type: application/json" \
  *     -d '{"to":"user@example.com","subject":"Hello","html":"<p>Hi</p>"}'
@@ -13,7 +13,7 @@ import { Buchida, type SendEmailParams } from "buchida";
 const app = express();
 app.use(express.json());
 
-const buchida = new Buchida(process.env.NSEND_API_KEY!);
+const buchida = new Buchida(process.env.BUCHIDA_API_KEY!);
 
 app.post("/send", async (req, res) => {
 	const { to, subject, html } = req.body as Pick<

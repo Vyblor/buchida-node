@@ -6,7 +6,7 @@
 import { Buchida } from "buchida";
 import { NextResponse } from "next/server";
 
-const buchida = new Buchida(process.env.NSEND_API_KEY!);
+const buchida = new Buchida(process.env.BUCHIDA_API_KEY!);
 
 export async function POST(request: Request) {
 	const { to, subject, html } = await request.json();

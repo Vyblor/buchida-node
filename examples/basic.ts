@@ -2,11 +2,11 @@
  * Basic example — send a single email with buchida.
  *
  * Run:
- *   NSEND_API_KEY=bc_test_xxx npx tsx examples/basic.ts
+ *   BUCHIDA_API_KEY=bc_test_xxx npx tsx examples/basic.ts
  */
 import { Buchida } from "buchida";
 
-const buchida = new Buchida(process.env.NSEND_API_KEY!);
+const buchida = new Buchida(process.env.BUCHIDA_API_KEY!);
 
 async function main() {
 	const { id } = await buchida.emails.send({
