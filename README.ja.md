@@ -1,6 +1,6 @@
 <div align="center">
   <img src="assets/logo-black.svg" alt="buchida" width="280" />
-  <p><strong>Developer-first email API with CJK support</strong></p>
+  <p><strong>CJKサポートを備えた開発者向けメールAPI</strong></p>
 
   [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
@@ -9,9 +9,9 @@
 
 ---
 
-The official Node.js SDK for the [buchida](https://buchida.com) email API.
+[buchida](https://buchida.com)メールAPIの公式Node.js SDKです。
 
-## Installation
+## インストール
 
 ```bash
 npm install buchida
@@ -25,7 +25,7 @@ pnpm add buchida
 yarn add buchida
 ```
 
-## Quick Start
+## クイックスタート
 
 ```typescript
 import { Buchida } from "buchida";
@@ -35,26 +35,26 @@ const buchida = new Buchida("bc_live_xxxxxxxxxxxxxxxxxxxxx");
 const { id } = await buchida.emails.send({
   from: "hello@yourdomain.com",
   to: "user@example.com",
-  subject: "Welcome to buchida!",
-  html: "<h1>Hello!</h1><p>Welcome aboard.</p>",
+  subject: "buchidaへようこそ！",
+  html: "<h1>こんにちは！</h1><p>ご登録ありがとうございます。</p>",
 });
 
-console.log(`Email sent: ${id}`);
+console.log(`メール送信完了: ${id}`);
 ```
 
-## Features
+## 特徴
 
-- Full TypeScript types
-- ESM + CJS dual export
-- Zero dependencies (native `fetch`)
+- 完全なTypeScript型サポート
+- ESM + CJSデュアルエクスポート
+- 依存関係ゼロ（ネイティブ`fetch`使用）
 - Node.js 18+
 
-## Documentation
+## ドキュメント
 
-- [Quick Start](https://buchida.com/docs/quickstart)
-- [API Reference](https://buchida.com/docs/sending-email)
+- [クイックスタート](https://buchida.com/ja/docs/quickstart)
+- [APIリファレンス](https://buchida.com/ja/docs/sending-email)
 - [GitHub](https://github.com/Vyblor/buchida-node)
 
-## License
+## ライセンス
 
 MIT

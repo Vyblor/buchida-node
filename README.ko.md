@@ -1,6 +1,6 @@
 <div align="center">
   <img src="assets/logo-black.svg" alt="buchida" width="280" />
-  <p><strong>Developer-first email API with CJK support</strong></p>
+  <p><strong>CJK 지원을 갖춘 개발자 중심 이메일 API</strong></p>
 
   [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
@@ -9,9 +9,9 @@
 
 ---
 
-The official Node.js SDK for the [buchida](https://buchida.com) email API.
+[buchida](https://buchida.com) 이메일 API의 공식 Node.js SDK입니다.
 
-## Installation
+## 설치
 
 ```bash
 npm install buchida
@@ -25,7 +25,7 @@ pnpm add buchida
 yarn add buchida
 ```
 
-## Quick Start
+## 빠른 시작
 
 ```typescript
 import { Buchida } from "buchida";
@@ -35,26 +35,26 @@ const buchida = new Buchida("bc_live_xxxxxxxxxxxxxxxxxxxxx");
 const { id } = await buchida.emails.send({
   from: "hello@yourdomain.com",
   to: "user@example.com",
-  subject: "Welcome to buchida!",
-  html: "<h1>Hello!</h1><p>Welcome aboard.</p>",
+  subject: "buchida에 오신 것을 환영합니다!",
+  html: "<h1>안녕하세요!</h1><p>가입을 환영합니다.</p>",
 });
 
-console.log(`Email sent: ${id}`);
+console.log(`이메일 발송 완료: ${id}`);
 ```
 
-## Features
+## 주요 기능
 
-- Full TypeScript types
-- ESM + CJS dual export
-- Zero dependencies (native `fetch`)
+- 완전한 TypeScript 타입 지원
+- ESM + CJS 듀얼 익스포트
+- 의존성 없음 (네이티브 `fetch` 사용)
 - Node.js 18+
 
-## Documentation
+## 문서
 
-- [Quick Start](https://buchida.com/docs/quickstart)
-- [API Reference](https://buchida.com/docs/sending-email)
+- [빠른 시작 가이드](https://buchida.com/ko/docs/quickstart)
+- [API 레퍼런스](https://buchida.com/ko/docs/sending-email)
 - [GitHub](https://github.com/Vyblor/buchida-node)
 
-## License
+## 라이선스
 
 MIT

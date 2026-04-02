@@ -1,6 +1,6 @@
 <div align="center">
   <img src="assets/logo-black.svg" alt="buchida" width="280" />
-  <p><strong>Developer-first email API with CJK support</strong></p>
+  <p><strong>支持CJK的开发者优先邮件API</strong></p>
 
   [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
@@ -9,9 +9,9 @@
 
 ---
 
-The official Node.js SDK for the [buchida](https://buchida.com) email API.
+[buchida](https://buchida.com)邮件API的官方Node.js SDK。
 
-## Installation
+## 安装
 
 ```bash
 npm install buchida
@@ -25,7 +25,7 @@ pnpm add buchida
 yarn add buchida
 ```
 
-## Quick Start
+## 快速开始
 
 ```typescript
 import { Buchida } from "buchida";
@@ -35,26 +35,26 @@ const buchida = new Buchida("bc_live_xxxxxxxxxxxxxxxxxxxxx");
 const { id } = await buchida.emails.send({
   from: "hello@yourdomain.com",
   to: "user@example.com",
-  subject: "Welcome to buchida!",
-  html: "<h1>Hello!</h1><p>Welcome aboard.</p>",
+  subject: "欢迎使用buchida！",
+  html: "<h1>你好！</h1><p>欢迎加入。</p>",
 });
 
-console.log(`Email sent: ${id}`);
+console.log(`邮件发送成功: ${id}`);
 ```
 
-## Features
+## 特性
 
-- Full TypeScript types
-- ESM + CJS dual export
-- Zero dependencies (native `fetch`)
+- 完整的TypeScript类型支持
+- ESM + CJS双格式导出
+- 零依赖（原生`fetch`）
 - Node.js 18+
 
-## Documentation
+## 文档
 
-- [Quick Start](https://buchida.com/docs/quickstart)
-- [API Reference](https://buchida.com/docs/sending-email)
+- [快速开始](https://buchida.com/zh/docs/quickstart)
+- [API参考](https://buchida.com/zh/docs/sending-email)
 - [GitHub](https://github.com/Vyblor/buchida-node)
 
-## License
+## 许可证
 
 MIT
