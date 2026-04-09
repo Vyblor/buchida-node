@@ -24,7 +24,7 @@ import type {
 	Webhook,
 } from "./types.js";
 
-const DEFAULT_BASE_URL = "https://api.buchida.com";
+const DEFAULT_BASE_URL = "https://api.buchida.com/v1";
 const DEFAULT_TIMEOUT = 30_000;
 
 export class Buchida {
