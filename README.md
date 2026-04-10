@@ -1,59 +1,46 @@
-<div align="center">
-  <img src="assets/logo-black.svg" alt="buchida" width="280" />
-  <p><strong>Developer-first email API with CJK support</strong></p>
+# buchida
 
-  [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
+**buchida Node.js SDK — Email API for AI agents**
 
-  [![npm version](https://img.shields.io/npm/v/buchida)](https://www.npmjs.com/package/buchida) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-</div>
+buchida is the official Node.js SDK for **buchida** — an email API built for AI agents. buchida ships a CLI, an MCP server, and SDKs in 5 languages (Node, Python, Go, Ruby, Java), all sharing the same REST API surface. `@buchida/email` templates render Korean, Japanese, and Chinese natively.
 
----
-
-The official Node.js SDK for the [buchida](https://buchida.com) email API.
-
-## Installation
+## Install
 
 ```bash
 npm install buchida
 ```
 
-```bash
-pnpm add buchida
-```
+## Send your first email
 
-```bash
-yarn add buchida
-```
+```ts
+import { Buchida } from 'buchida';
 
-## Quick Start
+const buchida = new Buchida(process.env.BUCHIDA_API_KEY);
 
-```typescript
-import { Buchida } from "buchida";
-
-const buchida = new Buchida("bc_live_xxxxxxxxxxxxxxxxxxxxx");
-
-const { id } = await buchida.emails.send({
-  from: "hello@yourdomain.com",
-  to: "user@example.com",
-  subject: "Welcome to buchida!",
-  html: "<h1>Hello!</h1><p>Welcome aboard.</p>",
+await buchida.emails.send({
+  from: 'hello@yourapp.com',
+  to: 'user@example.com',
+  subject: 'Hello',
+  html: '<h1>Welcome</h1>',
 });
-
-console.log(`Email sent: ${id}`);
 ```
-
-## Features
-
-- Full TypeScript types
-- ESM + CJS dual export
-- Zero dependencies (native `fetch`)
-- Node.js 18+
 
 ## Documentation
 
-- [Quick Start](https://buchida.com/docs/quickstart)
-- [API Reference](https://buchida.com/docs/sending-email)
-- [GitHub](https://github.com/Vyblor/buchida-node)
+Full docs: **[buchida.com/docs](https://buchida.com/docs)**
+
+- API reference: https://buchida.com/docs/api-reference
+- Quickstart guide: https://buchida.com/docs/quickstart
+- CJK email templates: https://buchida.com/docs/templates
+- MCP server setup: https://buchida.com/docs/mcp
+- CLI reference: https://buchida.com/docs/cli
+
+## Links
+
+- **Website:** [buchida.com](https://buchida.com)
+- **Documentation:** [buchida.com/docs](https://buchida.com/docs)
+- **Pricing:** [buchida.com/pricing](https://buchida.com/pricing)
+- **GitHub:** https://github.com/Vyblor/buchida-node
 
 ## License
 
