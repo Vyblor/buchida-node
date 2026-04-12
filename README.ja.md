@@ -1,15 +1,15 @@
 <div align="center">
   <img src="assets/logo-black.svg" alt="buchida" width="280" />
-  <p><strong>CJKサポートを備えた開発者向けメールAPI</strong></p>
+  <p><strong>buchida Node.js SDK — AI エージェントのためのメール API</strong></p>
 
-  [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
+  [English](README.md) | [한국어](README.ko.md) | [**日本語**](README.ja.md) | [中文](README.zh.md)
 
   [![npm version](https://img.shields.io/npm/v/buchida)](https://www.npmjs.com/package/buchida) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 </div>
 
 ---
 
-[buchida](https://buchida.com)メールAPIの公式Node.js SDKです。
+buchida は AI エージェントのために作られたメール API の公式 Node.js SDK です。buchida は CLI、MCP サーバー、そして 5 言語の SDK (Node、Python、Go、Ruby、Java) を提供しており、すべて同じ REST API 表面を共有しています。`@buchida/email` テンプレートは韓国語、日本語、中国語をネイティブにレンダリングします。
 
 ## インストール
 
@@ -17,43 +17,37 @@
 npm install buchida
 ```
 
-```bash
-pnpm add buchida
-```
-
-```bash
-yarn add buchida
-```
-
-## クイックスタート
+## 最初のメールを送信
 
 ```typescript
 import { Buchida } from "buchida";
 
-const buchida = new Buchida("bc_live_xxxxxxxxxxxxxxxxxxxxx");
+const buchida = new Buchida(process.env.BUCHIDA_API_KEY);
 
-const { id } = await buchida.emails.send({
-  from: "hello@yourdomain.com",
+await buchida.emails.send({
+  from: "hello@yourapp.com",
   to: "user@example.com",
-  subject: "buchidaへようこそ！",
-  html: "<h1>こんにちは！</h1><p>ご登録ありがとうございます。</p>",
+  subject: "こんにちは",
+  html: "<h1>ようこそ</h1>",
 });
-
-console.log(`メール送信完了: ${id}`);
 ```
-
-## 特徴
-
-- 完全なTypeScript型サポート
-- ESM + CJSデュアルエクスポート
-- 依存関係ゼロ（ネイティブ`fetch`使用）
-- Node.js 18+
 
 ## ドキュメント
 
-- [クイックスタート](https://buchida.com/ja/docs/quickstart)
-- [APIリファレンス](https://buchida.com/ja/docs/sending-email)
-- [GitHub](https://github.com/Vyblor/buchida-node)
+完全なドキュメント: **[buchida.com/docs](https://buchida.com/docs)**
+
+- API リファレンス: https://buchida.com/docs/api-reference
+- クイックスタートガイド: https://buchida.com/docs/quickstart
+- CJK メールテンプレート: https://buchida.com/docs/templates
+- MCP サーバーセットアップ: https://buchida.com/docs/mcp
+- CLI リファレンス: https://buchida.com/docs/cli
+
+## リンク
+
+- **ウェブサイト:** [buchida.com](https://buchida.com)
+- **ドキュメント:** [buchida.com/docs](https://buchida.com/docs)
+- **料金:** [buchida.com/pricing](https://buchida.com/pricing)
+- **GitHub:** https://github.com/Vyblor/buchida-node
 
 ## ライセンス
 

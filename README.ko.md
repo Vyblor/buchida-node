@@ -1,15 +1,15 @@
 <div align="center">
   <img src="assets/logo-black.svg" alt="buchida" width="280" />
-  <p><strong>CJK 지원을 갖춘 개발자 중심 이메일 API</strong></p>
+  <p><strong>buchida Node.js SDK — AI 에이전트를 위한 이메일 API</strong></p>
 
-  [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
+  [English](README.md) | [**한국어**](README.ko.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
   [![npm version](https://img.shields.io/npm/v/buchida)](https://www.npmjs.com/package/buchida) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 </div>
 
 ---
 
-[buchida](https://buchida.com) 이메일 API의 공식 Node.js SDK입니다.
+buchida는 AI 에이전트를 위해 만들어진 이메일 API의 공식 Node.js SDK입니다. buchida는 CLI, MCP 서버, 그리고 5개 언어 SDK (Node, Python, Go, Ruby, Java)를 제공하며, 모두 동일한 REST API 표면을 공유합니다. `@buchida/email` 템플릿은 한국어, 일본어, 중국어를 네이티브로 렌더링합니다.
 
 ## 설치
 
@@ -17,43 +17,37 @@
 npm install buchida
 ```
 
-```bash
-pnpm add buchida
-```
-
-```bash
-yarn add buchida
-```
-
-## 빠른 시작
+## 첫 이메일 보내기
 
 ```typescript
 import { Buchida } from "buchida";
 
-const buchida = new Buchida("bc_live_xxxxxxxxxxxxxxxxxxxxx");
+const buchida = new Buchida(process.env.BUCHIDA_API_KEY);
 
-const { id } = await buchida.emails.send({
-  from: "hello@yourdomain.com",
+await buchida.emails.send({
+  from: "hello@yourapp.com",
   to: "user@example.com",
-  subject: "buchida에 오신 것을 환영합니다!",
-  html: "<h1>안녕하세요!</h1><p>가입을 환영합니다.</p>",
+  subject: "안녕하세요",
+  html: "<h1>환영합니다</h1>",
 });
-
-console.log(`이메일 발송 완료: ${id}`);
 ```
-
-## 주요 기능
-
-- 완전한 TypeScript 타입 지원
-- ESM + CJS 듀얼 익스포트
-- 의존성 없음 (네이티브 `fetch` 사용)
-- Node.js 18+
 
 ## 문서
 
-- [빠른 시작 가이드](https://buchida.com/ko/docs/quickstart)
-- [API 레퍼런스](https://buchida.com/ko/docs/sending-email)
-- [GitHub](https://github.com/Vyblor/buchida-node)
+전체 문서: **[buchida.com/docs](https://buchida.com/docs)**
+
+- API 레퍼런스: https://buchida.com/docs/api-reference
+- 빠른 시작 가이드: https://buchida.com/docs/quickstart
+- CJK 이메일 템플릿: https://buchida.com/docs/templates
+- MCP 서버 설정: https://buchida.com/docs/mcp
+- CLI 레퍼런스: https://buchida.com/docs/cli
+
+## 링크
+
+- **웹사이트:** [buchida.com](https://buchida.com)
+- **문서:** [buchida.com/docs](https://buchida.com/docs)
+- **요금제:** [buchida.com/pricing](https://buchida.com/pricing)
+- **GitHub:** https://github.com/Vyblor/buchida-node
 
 ## 라이선스
 
