@@ -1,6 +1,6 @@
 {
 	"name": "buchida",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Official Node.js SDK for buchida email API",
 	"type": "module",
 	"main": "./dist/cjs/index.js",
