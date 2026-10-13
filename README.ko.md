@@ -24,12 +24,15 @@ import { Buchida } from "buchida";
 
 const buchida = new Buchida(process.env.BUCHIDA_API_KEY);
 
-await buchida.emails.send({
+const email = await buchida.emails.send({
   from: "hello@yourapp.com",
+  fromName: "부치다",
   to: "user@example.com",
   subject: "안녕하세요",
   html: "<h1>환영합니다</h1>",
 });
+
+console.log(email.id);
 ```
 
 ## 문서

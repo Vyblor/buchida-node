@@ -24,12 +24,15 @@ import { Buchida } from "buchida";
 
 const buchida = new Buchida(process.env.BUCHIDA_API_KEY);
 
-await buchida.emails.send({
+const email = await buchida.emails.send({
   from: "hello@yourapp.com",
+  fromName: "Vyblor",
   to: "user@example.com",
   subject: "你好",
   html: "<h1>欢迎</h1>",
 });
+
+console.log(email.id);
 ```
 
 ## 文档

@@ -8,6 +8,7 @@ export {
 } from "./errors.js";
 export type {
 	ApiKey,
+	BatchSendResult,
 	BuchidaOptions,
 	CreateApiKeyParams,
 	CreateDomainParams,
@@ -15,13 +16,14 @@ export type {
 	DnsRecord,
 	Domain,
 	Email,
+	EmailEvent,
 	GetMetricsParams,
 	ListEmailsParams,
 	ListEmailsResponse,
 	Metrics,
-	MetricsDataPoint,
 	SendEmailParams,
 	SendEmailResponse,
 	Template,
 	Webhook,
+	WithLegacyData,
 } from "./types.js";
