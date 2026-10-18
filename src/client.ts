@@ -69,7 +69,7 @@ export class Buchida {
 				headers: {
 					Authorization: `Bearer ${this.apiKey}`,
 					"Content-Type": "application/json",
-					"User-Agent": "buchida-node/0.2.0",
+					"User-Agent": "buchida-node/0.2.1",
 				},
 				body: body ? JSON.stringify(body) : undefined,
 				signal: controller.signal,

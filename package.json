@@ -1,6 +1,6 @@
 {
 	"name": "buchida",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Official Node.js SDK for buchida email API",
 	"type": "module",
 	"main": "./dist/cjs/index.js",
@@ -20,7 +20,7 @@
 	},
 	"files": ["dist", "README.md"],
 	"scripts": {
-		"build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+		"build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/cjs-package.cjs",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"typecheck": "tsc --noEmit"
