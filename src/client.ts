@@ -18,6 +18,7 @@ import type {
 	GetMetricsParams,
 	ListEmailsParams,
 	ListEmailsResponse,
+	ListTemplatesParams,
 	Metrics,
 	SendEmailParams,
 	SendEmailResponse,
@@ -69,7 +70,7 @@ export class Buchida {
 				headers: {
 					Authorization: `Bearer ${this.apiKey}`,
 					"Content-Type": "application/json",
-					"User-Agent": "buchida-node/0.2.1",
+					"User-Agent": "buchida-node/0.2.2",
 				},
 				body: body ? JSON.stringify(body) : undefined,
 				signal: controller.signal,
@@ -183,6 +184,9 @@ class Emails {
 		if (params.status) query.set("status", params.status);
 		if (params.from) query.set("from", params.from);
 		if (params.to) query.set("to", params.to);
+		if (params.fromDate) query.set("from_date", params.fromDate);
+		if (params.toDate) query.set("to_date", params.toDate);
+		if (params.direction) query.set("direction", params.direction);
 		const qs = query.toString();
 		return this.client.request<ListEmailsResponse>("GET", `/emails${qs ? `?${qs}` : ""}`);
 	}
@@ -255,8 +259,12 @@ class Webhooks {
 class Templates {
 	constructor(private client: Buchida) {}
 
-	async list(): Promise<WithLegacyData<Template[]>> {
-		return unwrap(await this.client.request<unknown>("GET", "/templates"));
+	async list(params: ListTemplatesParams = {}): Promise<WithLegacyData<Template[]>> {
+		const query = new URLSearchParams();
+		if (params.status) query.set("status", params.status);
+		if (params.search) query.set("search", params.search);
+		const qs = query.toString();
+		return unwrap(await this.client.request<unknown>("GET", `/templates${qs ? `?${qs}` : ""}`));
 	}
 
 	async get(id: string): Promise<WithLegacyData<Template>> {

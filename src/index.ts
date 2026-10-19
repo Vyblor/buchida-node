@@ -20,6 +20,7 @@ export type {
 	GetMetricsParams,
 	ListEmailsParams,
 	ListEmailsResponse,
+	ListTemplatesParams,
 	Metrics,
 	SendEmailParams,
 	SendEmailResponse,

@@ -35,6 +35,12 @@ const email = await buchida.emails.send({
 console.log(email.id);
 ```
 
+## Filtering lists
+
+- `emails.list({ from, to })` filter by sender / recipient **address** (not dates).
+- `emails.list({ fromDate, toDate })` filter by created date (ISO 8601); `direction: "inbound" | "outbound"`.
+- `templates.list({ status, search })` filter templates.
+
 ## Upgrading to 0.2
 
 - Responses are now unwrapped: `const { id } = await buchida.emails.send(...)`. Previously the

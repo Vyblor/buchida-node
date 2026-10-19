@@ -118,6 +118,31 @@ describe("Buchida Node SDK", () => {
 			);
 		});
 
+		it("list() passes from/to through unchanged and maps fromDate/toDate/direction", async () => {
+			globalThis.fetch = mockFetch(200, { data: [], hasMore: false });
+			const client = new Buchida("bc_test_xxx");
+			await client.emails.list({
+				from: "a+b@x.com",
+				to: "c@y.com",
+				fromDate: "2026-01-01",
+				toDate: "2026-02-01",
+				direction: "inbound",
+			});
+			const url = new URL((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]);
+			expect(url.searchParams.get("from")).toBe("a+b@x.com");
+			expect(url.searchParams.get("to")).toBe("c@y.com");
+			expect(url.searchParams.get("from_date")).toBe("2026-01-01");
+			expect(url.searchParams.get("to_date")).toBe("2026-02-01");
+			expect(url.searchParams.get("direction")).toBe("inbound");
+		});
+
+		it("list() with no params sends no query string", async () => {
+			globalThis.fetch = mockFetch(200, { data: [], hasMore: false });
+			await new Buchida("bc_test_xxx").emails.list();
+			const url = new URL((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]);
+			expect(url.search).toBe("");
+		});
+
 		it("cancel() posts to /emails/:id/cancel", async () => {
 			globalThis.fetch = mockFetch(200, { data: { id: "email_123", status: "cancelled" } });
 
@@ -280,6 +305,21 @@ describe("Buchida Node SDK", () => {
 			expect(Array.isArray(result)).toBe(true);
 			expect(result.map((t) => t.id)).toEqual(["tpl_1"]);
 			expect(result.data[0].name).toBe("Welcome");
+		});
+
+		it("list() with no params sends no query string", async () => {
+			globalThis.fetch = mockFetch(200, { data: [] });
+			await new Buchida("bc_test_xxx").templates.list();
+			const url = new URL((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]);
+			expect(url.search).toBe("");
+		});
+
+		it("list() sends status/search", async () => {
+			globalThis.fetch = mockFetch(200, { data: [] });
+			await new Buchida("bc_test_xxx").templates.list({ status: "published", search: "hi" });
+			const url = new URL((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]);
+			expect(url.searchParams.get("status")).toBe("published");
+			expect(url.searchParams.get("search")).toBe("hi");
 		});
 
 		it("get() fetches a single template", async () => {

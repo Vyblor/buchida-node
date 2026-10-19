@@ -65,8 +65,16 @@ export interface ListEmailsParams {
 	cursor?: string;
 	limit?: number;
 	status?: string;
+	/** Filter by sender address (case-insensitive). Not a date; use `fromDate` for dates. */
 	from?: string;
+	/** Filter by recipient address. Not a date; use `toDate` for dates. */
 	to?: string;
+	/** Only emails created at or after this date (ISO 8601), sent as `from_date`. */
+	fromDate?: string;
+	/** Only emails created at or before this date (ISO 8601), sent as `to_date`. */
+	toDate?: string;
+	/** Filter by direction. */
+	direction?: "inbound" | "outbound";
 }
 
 export interface ListEmailsResponse {
@@ -174,6 +182,13 @@ export interface Webhook {
 }
 
 // ── Template Types ──────────────────────────────────────────────────────────
+
+export interface ListTemplatesParams {
+	/** Filter by template status. */
+	status?: "draft" | "published";
+	/** Case-insensitive search over template name and subject. */
+	search?: string;
+}
 
 export interface Template {
 	id: string;
